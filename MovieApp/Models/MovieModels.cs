@@ -1,7 +1,7 @@
 ﻿namespace MovieApp.Models
 {
     
-    // MovieSearchResult.cs
+    
     public class MovieSearchResult
     {
         public List<MovieSearchItem> Search { get; set; }
@@ -9,7 +9,7 @@
         public bool Response { get; set; }
     }
 
-    // MovieSearchItem.cs
+    
     public class MovieSearchItem
     {
         public string Title { get; set; }
@@ -19,7 +19,6 @@
         public string Poster { get; set; }
     }
 
-    // MovieDetails.cs
     public class MovieDetails
     {
         public string Title { get; set; }
@@ -36,7 +35,7 @@
         public string Country { get; set; }
         public string Awards { get; set; }
         public string Poster { get; set; }
-       /* public List<Rating> Ratings { get; set; }*/
+        public List<Rating> Ratings { get; set; }
         public string Metascore { get; set; }
         public string ImdbRating { get; set; }
         public string ImdbVotes { get; set; }
@@ -49,11 +48,10 @@
         public bool Response { get; set; }
     }
 
-    // Rating.cs
-    /*public class Rating
+   public class Rating
     {
         public string Source { get; set; }
         public string Value { get; set; }
-    }*/
+    }
 
 }

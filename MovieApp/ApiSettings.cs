@@ -4,6 +4,7 @@
     {
 
         public string OmdbApiKey { get; set; }
+        public string BaseAddress { get; set; }
 
     }
 }

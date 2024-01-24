@@ -12,15 +12,18 @@ public class OmdbService : IOmdbService
 {
     private readonly HttpClient _httpClient;
     private readonly string _omdbApiKey;
+    private readonly string _baseAddress;
     private readonly SearchHistoryService _searchHistoryService;
 
-    public OmdbService(HttpClient httpClient, IOptions<ApiSettings> apiSettings, SearchHistoryService searchHistoryService)
+    public OmdbService(HttpClient httpClient, IConfiguration configuration, SearchHistoryService searchHistoryService)
     {
         _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-        _omdbApiKey = apiSettings.Value.OmdbApiKey;
+        _omdbApiKey = configuration["Api:OmdbApiKey"];
+        _baseAddress = configuration["BaseAddress"];
+
         _searchHistoryService = searchHistoryService;
 
-        _httpClient.BaseAddress = new Uri("http://www.omdbapi.com/");
+        _httpClient.BaseAddress = new Uri(_baseAddress);
     }
 
     public async Task<MovieSearchResult> SearchMoviesAsync(string title)
@@ -47,18 +50,5 @@ public class OmdbService : IOmdbService
         return result;
     }
 
-   /* private void SaveLatestSearchQuery(string query)
-    {
-        if (_latestSearchQueries.Count >= 5)
-        {
-            _latestSearchQueries.RemoveAt(0);
-        }
-
-        _latestSearchQueries.Add(query);
-    }
-
-    public List<string> GetLatestSearchQueries()
-    {
-        return _latestSearchQueries;
-    }*/
+   
 }
