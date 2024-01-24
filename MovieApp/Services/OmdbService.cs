@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using MovieApp;
-using MovieApp.Interface; // Import the interface
+using MovieApp.Interface; 
 using MovieApp.Models;
 using MovieApp.Services;
 using Newtonsoft.Json;

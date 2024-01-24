@@ -8,6 +8,6 @@ namespace MovieApp.Interface
 
         Task<MovieDetails> GetMovieDetailsAsync(string imdbId);
 
-       /* List<string> GetLatestSearchQueries();*/
+       
     }
 }
